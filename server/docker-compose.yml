@@ -9,7 +9,6 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt
     ports:
       - "444:444"
-    net: "host"
     dns_search:
       - "cute.systems"
     
@@ -21,7 +20,6 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt
     ports:
       - "445:445"
-    net: "host"
     dns_search:
       - "cute.systems"
     
@@ -33,6 +31,5 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt
     ports:
       - "446:446"
-    net: "host"
     dns_search:
       - "cute.systems"
