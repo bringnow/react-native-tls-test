@@ -4,10 +4,8 @@ tls1.2:
     - ./nginx-tls1.2.conf:/etc/nginx/nginx.conf
     - ./tls1.2.html:/var/www/index.html
     - /etc/letsencrypt:/etc/letsencrypt
-    - /var/acme-webroot:/var/acme-webroot
   ports:
-    - "80:80"
-    - "443:443"
+    - "444:443"
   net: "host"
   dns_search:
     - "cute.systems"
@@ -18,9 +16,8 @@ tls1.0:
     - ./nginx-tls1.1-1.2.conf:/etc/nginx/nginx.conf
     - ./tls1.1-1.2.html:/var/www/index.html
     - /etc/letsencrypt:/etc/letsencrypt
-    - /var/acme-webroot:/var/acme-webroot
   ports:
-    - "444:443"
+    - "445:443"
   net: "host"
   dns_search:
     - "cute.systems"
@@ -31,9 +28,8 @@ tls1.0:
     - ./nginx-tls1.0-1.2.conf:/etc/nginx/nginx.conf
     - ./tls1.0-1.2.html:/var/www/index.html
     - /etc/letsencrypt:/etc/letsencrypt
-    - /var/acme-webroot:/var/acme-webroot
   ports:
-    - "445:443"
+    - "446:443"
   net: "host"
   dns_search:
     - "cute.systems"
