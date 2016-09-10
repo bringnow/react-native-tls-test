@@ -5,6 +5,7 @@ tls1.2:
     - ./tls1.2.html:/var/www/index.html
     - /etc/letsencrypt:/etc/letsencrypt
   ports:
+    - "127.0.0.1:9874:80"
     - "444:443"
   net: "host"
   dns_search:
@@ -17,6 +18,7 @@ tls1.1:
     - ./tls1.1-1.2.html:/var/www/index.html
     - /etc/letsencrypt:/etc/letsencrypt
   ports:
+    - "127.0.0.1:9875:80"
     - "445:443"
   net: "host"
   dns_search:
@@ -29,6 +31,7 @@ tls1.0:
     - ./tls1.0-1.2.html:/var/www/index.html
     - /etc/letsencrypt:/etc/letsencrypt
   ports:
+    - "127.0.0.1:9876:80"
     - "446:443"
   net: "host"
   dns_search:
