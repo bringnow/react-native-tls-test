@@ -77,7 +77,7 @@ class RnTlsTest extends Component {
 
   render() {
     const { tls10Result, tls12Result } = this.state;
-    
+
     const brand = DeviceInfo.getBrand();
     const manufacturer = DeviceInfo.getManufacturer();
     const model = DeviceInfo.getModel();
@@ -128,8 +128,8 @@ class RnTlsTest extends Component {
             transitionDuration={200}
             states={{
               untested: {
-                text: 'Test TLS 1.2 (https://fancyssl.hboeck.de/)',
-                onPress: this.testUrl.bind(this, 'tls12State', 'https://fancyssl.hboeck.de/'),
+                text: 'Test TLS 1.2 (https://api-test.bringnow.com)',
+                onPress: this.testUrl.bind(this, 'tls12State', 'https://api-test.bringnow.com/'),
                 backgroundColor: '#1155DD',
               },
               testing: {
