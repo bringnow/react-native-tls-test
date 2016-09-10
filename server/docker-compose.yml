@@ -1,38 +1,38 @@
-tls1.2:
-  image: bringnow/nginx-letsencrypt
-  volumes:
-    - ./nginx-tls1.2.conf:/etc/nginx/nginx.conf
-    - ./tls1.2.html:/var/www/index.html
-    - /etc/letsencrypt:/etc/letsencrypt
-  ports:
-    - "127.0.0.1:9874:80"
-    - "444:443"
-  net: "host"
-  dns_search:
-    - "cute.systems"
+version: '2'
+
+services:
+  tls1.2:
+    image: nginx
+    volumes:
+      - ./nginx-tls1.2.conf:/etc/nginx/nginx.conf
+      - ./tls1.2.html:/var/www/index.html
+      - /etc/letsencrypt:/etc/letsencrypt
+    ports:
+      - "444:444"
+    net: "host"
+    dns_search:
+      - "cute.systems"
     
-tls1.1:
-  image: bringnow/nginx-letsencrypt
-  volumes:
-    - ./nginx-tls1.1-1.2.conf:/etc/nginx/nginx.conf
-    - ./tls1.1-1.2.html:/var/www/index.html
-    - /etc/letsencrypt:/etc/letsencrypt
-  ports:
-    - "127.0.0.1:9875:80"
-    - "445:443"
-  net: "host"
-  dns_search:
-    - "cute.systems"
+  tls1.1:
+    image: nginx
+    volumes:
+      - ./nginx-tls1.1-1.2.conf:/etc/nginx/nginx.conf
+      - ./tls1.1-1.2.html:/var/www/index.html
+      - /etc/letsencrypt:/etc/letsencrypt
+    ports:
+      - "445:445"
+    net: "host"
+    dns_search:
+      - "cute.systems"
     
-tls1.0:
-  image: bringnow/nginx-letsencrypt
-  volumes:
-    - ./nginx-tls1.0-1.2.conf:/etc/nginx/nginx.conf
-    - ./tls1.0-1.2.html:/var/www/index.html
-    - /etc/letsencrypt:/etc/letsencrypt
-  ports:
-    - "127.0.0.1:9876:80"
-    - "446:443"
-  net: "host"
-  dns_search:
-    - "cute.systems"
+  tls1.0:
+    image: nginx
+    volumes:
+      - ./nginx-tls1.0-1.2.conf:/etc/nginx/nginx.conf
+      - ./tls1.0-1.2.html:/var/www/index.html
+      - /etc/letsencrypt:/etc/letsencrypt
+    ports:
+      - "446:446"
+    net: "host"
+    dns_search:
+      - "cute.systems"
