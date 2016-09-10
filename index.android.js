@@ -1,35 +1,13 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableHighlight,
+  Alert,
 } from 'react-native';
-
-class rn_tls_test extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+import AwesomeButton from 'react-native-awesome-button';
 
 const styles = StyleSheet.create({
   container: {
@@ -37,6 +15,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  buttonContainer: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 20
   },
   welcome: {
     fontSize: 20,
@@ -48,6 +32,112 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  buttonBackground: {
+    flex: 1,
+    height: 40,
+    marginBottom: 20,
+    padding: 10,
+    borderRadius: 5
+  },
+  buttonLabel: {
+    color: 'white'
+  }
 });
 
-AppRegistry.registerComponent('rn_tls_test', () => rn_tls_test);
+class RnTlsTest extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tls10State: 'untested',
+      tls12State: 'untested',
+    }
+  }
+
+  testUrl(stateProp, url) {
+    this.setState({
+      [stateProp]: 'testing',
+    });
+    fetch(url)
+    .then((response) => {
+      this.setState({
+        [stateProp]: 'success',
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+      this.setState({
+        [stateProp]: 'failed',
+      });
+    });
+  }
+
+  render() {
+    const { tls10Result, tls12Result } = this.state;
+
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          React Native TLS Test
+        </Text>
+        <View style={styles.buttonContainer}>
+          <AwesomeButton
+            backgroundStyle={styles.buttonBackground}
+            labelStyle={styles.buttonLabel}
+            transitionDuration={200}
+            states={{
+              untested: {
+                text: 'Test TLS 1.0 (https://www.google.com)',
+                onPress: this.testUrl.bind(this, 'tls10State', 'https://www.google.com'),
+                backgroundColor: '#1155DD',
+              },
+              testing: {
+                text: 'Testing TLS 1.0 ...',
+                backgroundColor: '#002299',
+                spinner: true,
+              },
+              success: {
+                text: 'TLS 1.0 Success!',
+                backgroundColor: '#339944'
+              },
+              failed: {
+                text: 'TLS 1.0 Failed :-(',
+                backgroundColor: '#de5b26'
+              }
+            }}
+            buttonState={this.state.tls10State}
+          />
+          <AwesomeButton
+            backgroundStyle={styles.buttonBackground}
+            labelStyle={styles.buttonLabel}
+            transitionDuration={200}
+            states={{
+              untested: {
+                text: 'Test TLS 1.2 (https://fancyssl.hboeck.de/)',
+                onPress: this.testUrl.bind(this, 'tls12State', 'https://fancyssl.hboeck.de/'),
+                backgroundColor: '#1155DD',
+              },
+              testing: {
+                text: 'Testing TLS 1.2 ...',
+                backgroundColor: '#002299',
+                spinner: true,
+              },
+              success: {
+                text: 'TLS 1.2 Success!',
+                backgroundColor: '#339944'
+              },
+              failed: {
+                text: 'TLS 1.2 Failed :-(',
+                backgroundColor: '#de5b26'
+              }
+            }}
+            buttonState={this.state.tls12State}
+          />
+        </View>
+      </View>
+    );
+  }
+}
+
+AppRegistry.registerComponent('rn_tls_test', () => RnTlsTest);
