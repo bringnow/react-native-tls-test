@@ -8,6 +8,8 @@ import {
   Alert,
 } from 'react-native';
 import AwesomeButton from 'react-native-awesome-button';
+import DeviceInfo from 'react-native-device-info';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -75,11 +77,23 @@ class RnTlsTest extends Component {
 
   render() {
     const { tls10Result, tls12Result } = this.state;
+    
+    const brand = DeviceInfo.getBrand();
+    const manufacturer = DeviceInfo.getManufacturer();
+    const model = DeviceInfo.getModel();
+    const os = DeviceInfo.getSystemName();
+    const osVersion = DeviceInfo.getSystemVersion();
 
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           React Native TLS Test
+        </Text>
+        <Text>
+            Device: {brand} {brand !== manufacturer ? `(${manufacturer}) ` : null }{model}
+        </Text>
+        <Text>
+            OS: {os} {osVersion}
         </Text>
         <View style={styles.buttonContainer}>
           <AwesomeButton
