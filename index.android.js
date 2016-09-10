@@ -102,21 +102,21 @@ class RnTlsTest extends Component {
             transitionDuration={200}
             states={{
               untested: {
-                text: 'Test TLS 1.0 (https://www.google.com)',
-                onPress: this.testUrl.bind(this, 'tls10State', 'https://www.google.com'),
+                text: 'Test TLS 1.0+',
+                onPress: this.testUrl.bind(this, 'tls10State', 'https://tls-tests.cute.systems:446/'),
                 backgroundColor: '#1155DD',
               },
               testing: {
-                text: 'Testing TLS 1.0 ...',
+                text: 'Testing TLS 1.0+ ...',
                 backgroundColor: '#002299',
                 spinner: true,
               },
               success: {
-                text: 'TLS 1.0 Success!',
+                text: 'TLS 1.0+ Success!',
                 backgroundColor: '#339944'
               },
               failed: {
-                text: 'TLS 1.0 Failed :-(',
+                text: 'TLS 1.0+ Failed :-(',
                 backgroundColor: '#de5b26'
               }
             }}
@@ -128,8 +128,8 @@ class RnTlsTest extends Component {
             transitionDuration={200}
             states={{
               untested: {
-                text: 'Test TLS 1.2 (https://api-test.bringnow.com)',
-                onPress: this.testUrl.bind(this, 'tls12State', 'https://api-test.bringnow.com/'),
+                text: 'Test TLS 1.2',
+                onPress: this.testUrl.bind(this, 'tls12State', 'https://tls-tests.cute.systems:444/'),
                 backgroundColor: '#1155DD',
               },
               testing: {
