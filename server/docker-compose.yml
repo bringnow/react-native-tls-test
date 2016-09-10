@@ -10,7 +10,7 @@ tls1.2:
   dns_search:
     - "cute.systems"
     
-tls1.0:
+tls1.1:
   image: bringnow/nginx-letsencrypt
   volumes:
     - ./nginx-tls1.1-1.2.conf:/etc/nginx/nginx.conf
