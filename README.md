@@ -16,11 +16,11 @@ There are two variants of the app:
 
 The results show the patch actually work:
 
-*Using the stock react-native on Android 4.1*:
+**Using the *stock* react-native on Android 4.1**:
 
 ![react-native-stock on Android 4.1](./screenshots/react-native-stock-android-4.1.png)
 
-*Using the patched react-native on Android 4.1*:
+**Using the *patched* react-native on Android 4.1**:
 
 ![react-native-patched on Android 4.1](./screenshots/react-native-patched-android-4.1.png)
 
