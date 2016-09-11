@@ -6,8 +6,8 @@ This is a little demo app for demonstrating the issue and to test the patch for 
 
 The app is quite minimal and has only two buttons, each performing a minmal HTTPS request against the following two webservers:
 
-* [https://tls-tests.cute.systems:446/](https://tls-tests.cute.systems:446/): NGINX accepting TLS 1.0+ connections ([config file](./server/nginx-tls1.0-1.2.conf).
-* [https://tls-tests.cute.systems:444/](https://tls-tests.cute.systems:446/): NGINX accepting TLS 1.2 connections only ([config file](./server/nginx-tls1.2.conf).
+* [https://tls-tests.cute.systems:446/](https://tls-tests.cute.systems:446/): NGINX 1.10.1 accepting TLS 1.0+ connections ([config file](./server/nginx-tls1.0-1.2.conf).
+* [https://tls-tests.cute.systems:444/](https://tls-tests.cute.systems:446/): NGINX 1.10.1 accepting TLS 1.2 connections only ([config file](./server/nginx-tls1.2.conf).
 
 There are two variants of the app:
 

@@ -2,7 +2,7 @@ version: '2'
 
 services:
   tls1.2:
-    image: nginx
+    image: nginx:1.10.1
     volumes:
       - ./nginx-tls1.2.conf:/etc/nginx/nginx.conf
       - ./tls1.2.html:/var/www/index.html
@@ -11,9 +11,9 @@ services:
       - "444:444"
     dns_search:
       - "cute.systems"
-    
+
   tls1.1:
-    image: nginx
+    image: nginx:1.10.1
     volumes:
       - ./nginx-tls1.1-1.2.conf:/etc/nginx/nginx.conf
       - ./tls1.1-1.2.html:/var/www/index.html
@@ -22,9 +22,9 @@ services:
       - "445:445"
     dns_search:
       - "cute.systems"
-    
+
   tls1.0:
-    image: nginx
+    image: nginx:1.10.1
     volumes:
       - ./nginx-tls1.0-1.2.conf:/etc/nginx/nginx.conf
       - ./tls1.0-1.2.html:/var/www/index.html
